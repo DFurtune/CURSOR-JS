@@ -35,10 +35,10 @@ const averagePrice = sumPrice / 3;
 const roundAveragePrice = Math.round(averagePrice/0.01)*0.01
 console.log(`Середня ціна становить: ${roundAveragePrice}`);
 
-const discont = (Math.random() * sumRoundPrice).toFixed(2)
+const discont = (Math.random() * sumPrice).toFixed(2);
 console.log(`Знижка становить: ${discont}`)
-const amountToPay = (sumRoundPrice - discont).toFixed(2);
+const amountToPay = (sumPrice - discont).toFixed(2);
 console.log(`До оплати: ${amountToPay}`)
-const netProfit = (sumRoundPrice / 2 - discont).toFixed(2);
+const netProfit = (sumPrice / 2 - discont).toFixed(2);
 console.log(`Чистий прибуток становить: ${netProfit}`)
 
