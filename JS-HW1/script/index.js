@@ -20,12 +20,9 @@ console.log(`Сума всіх товарів з округленням в ме�
 const sumRoundPrice = Math.round(sumPrice/100)*100
 console.log(`Сума всіх товарів з округленням до сотень становить: ${sumRoundPrice}`)
 
-if (sumFloorPrice % 2 === 0) {
-    console.log(`Сума товарів парне число та становить: ${true}`);
-}
-else {
-    console.log(`Сума товарів не парне число та становить: ${false}`)
-}
+const isEven = sumFloorPrice % 2 === 0;
+console.log(
+  `Сума товарів ${isEven ? "непарне" : "парне"} число та становить ${isEven}`);
 
 const cashClient = 500
 const oddMoney = cashClient - sumPrice
