@@ -14,10 +14,10 @@ console.log(secondEnter, typeof secondEnter);
 console.log(`Значення N = ${firstEnter}, M ${secondEnter}`);
 
 if (firstEnter > secondEnter) {
-  [firstEnter, firstEnter] = [secondEnter, firstEnter];
+  [firstEnter, secondEnter] = [secondEnter, firstEnter];
   console.log(`Переставляємо місцями N = ${firstEnter} M = ${secondEnter}`);
 }
-console.log(`Переставляємо місцями N = ${firstEnter} M = ${secondEnter}`);
+console.log(`Переставляємо місцями N = ${secondEnter} M = ${firstEnter}`);
 let sum = 0;
 
 const skipNumbers = confirm("Пропускати парні числа?");
