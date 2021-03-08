@@ -1,6 +1,6 @@
 function getMaxDigit(number) {
-  const arr = number.toString().split("");
-  return Math.max(...arr);
+  const getMaxDigit = (number) =>
+    Math.max(...Array.from(String(number)).map((item) => parseInt(item)));
 }
 
 console.log(`Функція №1: найбільша цифра в числі 1236 є ${getMaxDigit(1236)}`);
@@ -18,7 +18,7 @@ console.log(
 );
 
 function nameFormatting(name) {
-  if (!name) return name;
+  if (!name) return "Error: no inputed name";
   const strLowerCase = name.toLowerCase();
   return strLowerCase[0].toUpperCase() + strLowerCase.slice(1);
 }
@@ -26,7 +26,7 @@ function nameFormatting(name) {
 console.log(`Функція №3: відформатуємо dmytrO на ${nameFormatting("dmytrO")}`);
 
 function getTax(sum) {
-  const tax = 0.195;
+  const tax = 18 + 1.5;
   let sumAfterTax;
   sumAfterTax = sum - sum * tax;
   return sumAfterTax;
@@ -66,31 +66,19 @@ console.log(
   )}`
 );
 
-function convert(currency) {
-  const currencyLowCase = currency.toLowerCase();
-  const USD = currencyLowCase.indexOf("$");
-  const UAH = currencyLowCase.indexOf("uah");
-  const exchange = 28;
-  let sum = 0;
-  if (currencyLowCase[USD] === "$") {
-    const numeralCurrency = Number(currencyLowCase.substring(0, USD));
-    sum = numeralCurrency * exchange;
-    return `${currency}=${sum}` + "UAH";
-  } else if (
-    currencyLowCase[UAH] === "u" &&
-    currencyLowCase[UAH + 1] === "a" &&
-    currencyLowCase[UAH + 2] === "h"
-  ) {
-    const numeralCurrency = Number(currencyLowCase.substring(0, UAH));
-    sum = numeralCurrency / exchange;
-    return `${currency}=${sum}` + "$";
+function convertCurrency(stringCurrency = "100$") {
+  const currencyUsd = 27.85;
+  const caseСurrency = stringCurrency.toLowerCase();
+  if (caseСurrency.includes("uah")) {
+    return (parseInt(stringCurrency) / currencyUsd).toFixed(2) + "$";
+  } else if (caseСurrency.includes("$")) {
+    return (parseInt(stringCurrency) * currencyUsd).toFixed(2) + "грн";
   } else {
-    console.log("Валюта введена некорректно!");
+    return "Помилка, необхідно ввести коректну валюту: $ або UAH";
   }
 }
 
-const convertCurrency = convert("2800uah");
-console.log(`Функція №7: Обмін по курсу => ${convertCurrency}`);
+console.log(`Функція №7: 100$ коштує ${convertCurrency()}`);
 
 function getPassword(passwordLenght = 8) {
   if (Number.isInteger(passwordLenght)) {
@@ -133,7 +121,7 @@ function isPalindrome(word) {
 }
 
 const getCheckForPalindrome = "Я несу гусеня";
-console.log(isPalindrome(getCheckForPalindrome));
+console.log(`Функція №10: ${isPalindrome(getCheckForPalindrome)}`);
 
 function deleteDuplicateLetter(word) {
   word = word.toLowerCase();
@@ -148,4 +136,4 @@ function deleteDuplicateLetter(word) {
   return newWord;
 }
 const sentence = "Бісквіт був дуже ніжним";
-console.log(deleteDuplicateLetter(sentence));
+console.log(`Функція №11: ${deleteDuplicateLetter(sentence)}`);
