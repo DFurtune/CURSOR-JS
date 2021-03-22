@@ -1,7 +1,5 @@
-function getMaxDigit(number) {
-  const getMaxDigit = (number) =>
-    Math.max(...Array.from(String(number)).map((item) => parseInt(item)));
-}
+const getMaxDigit = (number) =>
+  Math.max(...Array.from(String(number)).map((item) => parseInt(item)));
 
 console.log(`Функція №1: найбільша цифра в числі 1236 є ${getMaxDigit(1236)}`);
 
@@ -36,9 +34,9 @@ console.log(
   `Функція №4: 5000грн після сплати податку 19,5% становить ${getTax(5000)}грн`
 );
 
-function getRandomNumber(N, M) {
-  const randomNumber = Math.floor(Math.random() * (M - N + 1)) + N;
-  return randomNumber;
+function getRandomNumber(number1, number2) {
+  const result = (Math.random() * (number2 - number1) + number1).toFixed(0);
+  return result;
 }
 
 console.log(
